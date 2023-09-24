@@ -15,10 +15,12 @@ renderer.renderLine(window, np.array([10, 25]), np.array([90, 15]), GREEN, True)
 renderer.renderLine(window, np.array([40, 40]), np.array([40, 100]), BLUE, True)
 
 renderer.renderQuad(window, np.array([10, 20, 30, 40]), BLACK)
-renderer.renderFillTriag(window, np.array([100, 100]), np.array([200, 150]), np.array([150, 250]), BLUE)
-renderer.renderFillQuad(window, np.array([20, 20, 100, 10]), GREEN)
 
 texture = renderer.loadTexture("dog.jpg")
 renderer.renderCopy(window, texture, None, np.array([100, 100, 180, 200]))
+
+renderer.renderFillTriag(window, np.array([100, 100]), np.array([200, 150]), np.array([150, 250]), BLUE)
+renderer.renderFillQuad(window, np.array([20, 20, 100, 10]), GREEN)
+
 renderer.show(window)
 
