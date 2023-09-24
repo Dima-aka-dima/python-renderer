@@ -25,6 +25,7 @@ def renderLineNoAA(window, p1, p2, color):
     window[pointsInteger[1], pointsInteger[0]] = color
     
 
+# i dont know why this works
 def renderLineAA(window, p1, p2, color):
     EPS = 1e-6
 
@@ -67,7 +68,8 @@ def renderTriag(window, p1, p2, p3, color, antiAliasing = False):
     renderLine(window, p1, p2, color, antiAliasing)
     renderLine(window, p1, p3, color, antiAliasing)
     renderLine(window, p2, p3, color, antiAliasing)
-    
+
+# i know why this works
 def renderFillTriag(window, p1, p2, p3, color):
     ps = np.array([p1, p2, p3])
     xMin, yMin = np.min(ps, axis = 0)
@@ -89,12 +91,10 @@ def renderFillTriag(window, p1, p2, p3, color):
     b2 = p3[1] - p1[1]
     c2 = p3[1]*p1[0] - p1[1]*p3[0]
     
-    # j, i = np.meshgrid(np.arange(window.shape[1]), np.arange(window.shape[0]))
     j, i = np.meshgrid(np.arange(subWindow.shape[1]), np.arange(subWindow.shape[0]))
     ind1 = (a1*i + b1*j > c1)
     ind2 = (a2*i + b2*j > c2)
     ind3 = (a3*i + b3*j > c3)
-
 
     subWindow[ind1 & ind2 & ind3] = color
     window[yMin:yMax, xMin:xMax] = subWindow
